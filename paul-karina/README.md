@@ -1,7 +1,7 @@
 # Project Name
 
 **Author**: Paul Ritzman and Karina Amador
-**Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
+**Version**: 3.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
 This application is a blog, which practices mobile-first CSS styling to provide a better user experience.
@@ -19,21 +19,19 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 * IcoMoon icons
 
 ## Change Log
-<!-- 05-09-2018 9:40am - Article constrcutor function working properly. -->
 05-10-2018 9:12am - Added data-author attribute to all Article clones and linked scripts to index.html
 
 05-10-2018 9:12am - Completed articleView.populateFilters function to append options to DOM
 
 05-10-2018 10:38am - Completed articleView.handleAuthorFilter function to show and hide elements based on selection
 
-05-10-2018 10:57 - Completed the articleView.handleCategoryFilter function to show articled sorted by category and the author selector resets.
+05-10-2018 10:57qm - Completed the articleView.handleCategoryFilter function to show articled sorted by category and the author selector resets.
 
-05-10-2018 11:30 - We completed the articleView.handleMainNav function so that the respective sections shows when a nav element is clicked.
+05-10-2018 11:30am - We completed the articleView.handleMainNav function so that the respective sections shows when a nav element is clicked.
 
-05-10-2018 12:46 - Completed the articleView.setTeasers function. The read on element shows the rest od the article content when clicked.
+05-10-2018 12:46pm - Completed the articleView.setTeasers function. The read on element shows the rest od the article content when clicked.
 
-
-
+05-10-2018 1:44pm - Completed articleView.collapseArticle function, so that we can collapse the additional elements shown by the articleView.setTeasers function.
 
 ## Credits and Collaborations
 
