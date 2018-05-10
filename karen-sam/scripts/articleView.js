@@ -1,19 +1,20 @@
 'use strict';
 
-// REVIEW: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
+// REVIEW-DONE: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
 let articleView = {};
+let $newArticle = $('article:not(".template")');
 
 articleView.populateFilters = function() {
   $('article').each(function() {
-    // REVIEW: We can declare several variables at once and assign their values later when using let. Keep in mind that we cannot do this with const.
+    // REVIEW-DONE: We can declare several variables at once and assign their values later when using let. Keep in mind that we cannot do this with const.
     let authorName, category, optionTag;
     if (!$(this).hasClass('template')) {
-      // REVIEW: We need to take every author name from the page, and make it an option in the Author filter.
+      // REVIEW-DONE: We need to take every author name from the page, and make it an option in the Author filter.
       // To do so, Build an <option> DOM element that we can append to the author <select> element.
       // Start by grabbing the author's name from `this` article element, and then use that bit of text to create the option tag (in a variable named `optionTag`) that we can append to the #author-filter select element.
       authorName = $(this).attr('data-author');
 
-      // TODO: Refactor this concatenation using a template literal.
+      // DONE: Refactor this concatenation using a template literal.
       optionTag = `<option value="${authorName}">${authorName}</option>`;
 
       if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
@@ -24,7 +25,7 @@ articleView.populateFilters = function() {
       // Avoid duplicates! We don't want to append the category name if the <select> already has this category as an option!
       category = $(this).attr('data-category');
 
-      // TODO: Refactor this concatenation using a template literal.
+      // DONE: Refactor this concatenation using a template literal.
       optionTag = `<option value="${category}">${category}</option>`;
 
       if ($('#category-filter option[value="' + category + '"]').length === 0) {
@@ -37,19 +38,19 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     
-    // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
+    // REVIEW-DONE: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
     if ($(this).val()) {
       // TODO: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
       // Use an "attribute selector" to find those articles, and fade them in for the reader.
 
-      $newArticle.fadeOut('fast', 'ease');
-      $newArticle.find(`[data-author*='${$(this).val()}'}`).fadeIn('fast', 'ease');
+      $newArticle.fadeOut('fast');
+      $newArticle.find(`[data-author*='${$(this).val()}']`).fadeIn('fast');
 
     } else {
       // TODO: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
 
-      $newArticle.fadeOut('fast', 'ease');
-      $newArticle.fadeIn('fast', 'ease');
+      $newArticle.fadeOut('fast');
+      $newArticle.fadeIn('fast');
 
     }
     $('#category-filter').val('');
@@ -65,13 +66,13 @@ articleView.handleCategoryFilter = function() {
 
     if ($(this).val()) {
 
-      $newArticle.fadeOut('fast', 'ease');
-      $newArticle.find(`[data-category*='${$(this).val()}'}`).fadeIn('fast', 'ease');
+      $newArticle.fadeOut('fast');
+      $newArticle.find(`[data-category*='${$(this).val()}']`).fadeIn('fast');
 
     } else {
 
-      $newArticle.fadeOut('fast', 'ease');
-      $newArticle.fadeIn('fast', 'ease');
+      $newArticle.fadeOut('fast');
+      $newArticle.fadeIn('fast');
     }
     $('#author-filter').val('');
   })
@@ -109,6 +110,7 @@ $(document).ready(function() {
   articleView.handleMainNav();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
+  articleView.populateFilters();
 
 
 })
