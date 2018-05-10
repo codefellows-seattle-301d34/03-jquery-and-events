@@ -15,7 +15,6 @@ articleView.populateFilters = function () {
       authorName = $( this ).attr( 'data-author' );
 
       // DONE: Refactor this concatenation using a template literal.
-      // optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
       optionTag = `<option value="${authorName}">${authorName}</option>`;
 
@@ -29,7 +28,6 @@ articleView.populateFilters = function () {
       category = $( this ).attr( 'data-category' );
 
       // DONE: Refactor this concatenation using a template literal.
-      // optionTag = '<option value="' + category + '">' + category + '</option>';
 
       optionTag = `<option value="${category}">${category}</option>`;
 
@@ -40,7 +38,6 @@ articleView.populateFilters = function () {
     }
   } );
 };
-///////////////////////////////////
 
 articleView.handleAuthorFilter = function () {
   $( '#author-filter' ).on( 'change', function () {
@@ -97,23 +94,16 @@ articleView.setTeasers = function () {
   // REVIEW: Hide elements beyond the first 2 in any article body.
   $( '.article-body *:nth-of-type(n+2)' ).hide();
 
-  // TODO: Add an event handler to reveal all the hidden elements, when the .read-on link is clicked. You can go ahead and hide the "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
+  // DONE: Add an event handler to reveal all the hidden elements, when the .read-on link is clicked. You can go ahead and hide the "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   // Ideally, we'd attach this as just one event handler on the #articles section, and let it process (in other words...delegate) any .read-on clicks that happen within child nodes.
-  // PSEUDO CODE 
-  // 1. Create an event listener on the #article ID.
-  // 2. Create an event handler which recognizes .on-read click.
-  // 3. Show the rest of .article-body class
   $( '#articles' ).on( 'click', '.read-on', function ( event ) {
     event.preventDefault();
     $( this ).parent().find('*').show();
 
   }  )
-
-
-
 };
 
-// TODO: Call all of the above functions, once we are sure the DOM is ready.
+// DONE: Call all of the above functions, once we are sure the DOM is ready.
 $( document ).ready( function () {
   $( '.tab-content' ).hide();
   articleView.populateFilters();
