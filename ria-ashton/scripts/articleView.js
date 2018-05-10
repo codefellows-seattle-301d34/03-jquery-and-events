@@ -1,5 +1,4 @@
 'use strict';
-alert('hi');
 // REVIEW: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
 let articleView = {};
 
@@ -14,7 +13,7 @@ articleView.populateFilters = function() {
       authorName = $(this).attr('data-author');
 
       // TODO: Refactor this concatenation using a template literal.
-      optionTag = `<option value="${authorName}">${authorName} </option>`;
+      optionTag = `<option value="${authorName}">${authorName}</option>`;
   
       
       if ($(`#author-filter option[value="${authorName}"]`).length === 0) {
@@ -34,6 +33,8 @@ articleView.populateFilters = function() {
     }
   });
 };
+
+articleView.populateFilters(); // REMOVE ME LATER!
 
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
