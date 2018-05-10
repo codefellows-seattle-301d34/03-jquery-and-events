@@ -85,7 +85,13 @@ articleView.handleMainNav = function () {
 
   // REVIEW: Now trigger a click on the first .tab element, to set up the page.
   $( 'nav .tab:first' ).click( function () {
+    $( '.tab-content' ).hide();
     $( '#articles' ).fadeIn( 750 );
+  } );
+  
+  $( 'nav li:nth-of-type(2)' ).click( function () {
+    $( '.tab-content' ).hide();
+    $( '#about' ).fadeIn( 750 );
   });
 };
 
