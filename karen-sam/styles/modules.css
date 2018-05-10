@@ -73,6 +73,11 @@ a:hover, a:focus {
   list-style: none;
 }
 
+/*== ARTICLE TOGGLE ==*/
+.article-body *:nth-of-type(n+2) {
+  display:none;
+}
+
 /* === MEDIA QUERY === */
 
 @media only screen and (min-width: 640px) {
