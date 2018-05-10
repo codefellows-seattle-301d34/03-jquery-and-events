@@ -15,9 +15,9 @@ articleView.populateFilters = function() {
       authorName = $(this).attr('data-author');
 
       // TODO: Refactor this concatenation using a template literal.
-      optionTag = `<option value=" ${authorName}  "> ${authorName} </option>`;
+      optionTag = `<option value="${authorName}"> ${authorName} </option>`;
 
-      if ($(`#author-filter option[value=" ${authorName} "]`).length === 0) {
+      if ($(`#author-filter option[value="${authorName}"]`).length === 0) {
         $('#author-filter').append(optionTag);
       }
 
@@ -28,7 +28,7 @@ articleView.populateFilters = function() {
       // TODO: Refactor this concatenation using a template literal.
       optionTag = `<option value=" ${category} "> ${category} </option>`;
 
-      if ($(`#category-filter option[value=" ${category} "]`).length === 0) {
+      if ($(`#category-filter option[value="${category}"]`).length === 0) {
         $('#category-filter').append(optionTag);
       }
     }
@@ -40,9 +40,13 @@ articleView.handleAuthorFilter = function() {
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
     if ($(this).val()) {
       $('article').hide()
-      $(this).attr('data-author').fadeIn(750)
-      
+     console.log($(`article[data-author="${$(this).val()}"]`))
+     let val = $(this).val()
+     console.log('val', typeof val)
+     console.log("Macklemore" === val)
+      $(`article[data-author='${val}']`).fadeIn(750)
 
+    
 
       // TODO: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
       // Use an "attribute selector" to find those articles, and fade them in for the reader.
