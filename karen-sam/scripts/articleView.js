@@ -1,15 +1,15 @@
 'use strict';
 
-// REVIEW: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
+// REVIEW-DONE: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
 let articleView = {};
 let $newArticle = $('article:not(".template")');
 
 articleView.populateFilters = function() {
   $('article').each(function() {
-    // REVIEW: We can declare several variables at once and assign their values later when using let. Keep in mind that we cannot do this with const.
+    // REVIEW-DONE: We can declare several variables at once and assign their values later when using let. Keep in mind that we cannot do this with const.
     let authorName, category, optionTag;
     if (!$(this).hasClass('template')) {
-      // REVIEW: We need to take every author name from the page, and make it an option in the Author filter.
+      // REVIEW-DONE: We need to take every author name from the page, and make it an option in the Author filter.
       // To do so, Build an <option> DOM element that we can append to the author <select> element.
       // Start by grabbing the author's name from `this` article element, and then use that bit of text to create the option tag (in a variable named `optionTag`) that we can append to the #author-filter select element.
       authorName = $(this).attr('data-author');
@@ -38,7 +38,7 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     
-    // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
+    // REVIEW-DONE: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
     if ($(this).val()) {
       // DONE: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
       // Use an "attribute selector" to find those articles, and fade them in for the reader.
