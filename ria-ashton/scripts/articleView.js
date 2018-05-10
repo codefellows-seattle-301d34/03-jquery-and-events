@@ -14,8 +14,8 @@ articleView.populateFilters = function() {
 
       // TODO: Refactor this concatenation using a template literal.
       optionTag = `<option value="${authorName}">${authorName}</option>`;
-  
-      
+
+
       if ($(`#author-filter option[value="${authorName}"]`).length === 0) {
         $('#author-filter').append(optionTag);
       }
@@ -46,19 +46,28 @@ articleView.handleAuthorFilter = function() {
     } else {
       // TODO: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
       $('article').show();
-      
-
     }
     $('#category-filter').val('');
   });
 };
 
 articleView.handleCategoryFilter = function() {
-  // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
-  // When an option with a value is selected, hide all the articles, then reveal the matches.
-  // When the blank (default) option is selected, show all the articles, except for the template.
-  // Be sure to reset the #author-filter while you are at it!
-
+  $('#category-filter').on('change', function () {
+    console.log('category filter has been changed!');
+    // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
+    // When an option with a value is selected, hide all the articles, then reveal the matches.
+    if ($(this).val()) {
+      $('article').hide();
+      let category = $(this).val();
+      $(`article[data-category="${category}"]`).show()
+      // $(`article[data-category="${category}"]`).show();
+    } else {
+      // When the blank (default) option is selected, show all the articles, except for the template.
+      $('article').show();
+    }
+    // // Be sure to reset the #author-filter while you are at it!
+    $('#author-filter').val('');
+  })
 };
 
 articleView.handleMainNav = function() {
