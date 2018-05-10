@@ -26,6 +26,15 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 
 05-10-2018 10:38am - Completed articleView.handleAuthorFilter function to show and hide elements based on selection
 
+05-10-2018 10:57 - Completed the articleView.handleCategoryFilter function to show articled sorted by category and the author selector resets.
+
+05-10-2018 11:30 - We completed the articleView.handleMainNav function so that the respective sections shows when a nav element is clicked.
+
+05-10-2018 12:46 - Completed the articleView.setTeasers function. The read on element shows the rest od the article content when clicked.
+
+
+
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
