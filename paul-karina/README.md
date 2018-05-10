@@ -30,6 +30,8 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 
 05-10-2018 11:30 - We completed the articleView.handleMainNav function so that the respective sections shows when a nav element is clicked.
 
+05-10-2018 12:46 - Completed the articleView.setTeasers function. The read on element shows the rest od the article content when clicked.
+
 
 
 
