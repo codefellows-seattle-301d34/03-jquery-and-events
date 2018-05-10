@@ -22,6 +22,8 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 <!-- 05-09-2018 9:40am - Article constrcutor function working properly. -->
 05-10-2018 9:12am - Added data-author attribute to all Article clones and linked scripts to index.html
 
+05-10-2018 9:12am - Completed articleView.populateFilters function to append options to DOM
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
