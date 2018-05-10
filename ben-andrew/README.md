@@ -17,9 +17,10 @@ CSS is organized using SMACSS guidelines.
 Written with Visual Studio Code.
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: -->
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+05-10-2018 11:27am - Application now hides post content until the user presses the 'read on' button.
+
+05-10-2018 10:42am - Application now allows content to be filtered by author and category.
 
 ## Credits and Collaborations
 **Anish Athalye** - [anishathalye](https://github.com/anishathalye/?normalize) for the normalize.css v3.0.2 | MIT License | [normalize](git.io/normalize)  
