@@ -77,9 +77,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/blogArticles.js"></script>
   <script src="scripts/article.js"></script>
-  <!-- TODO: Link our new script file in. -->
-
+  <!-- DONE: Link our new script file in. -->
+  <script src="scripts/articleView.js"></script>
   <!-- COMMENT: Explain the ordering of your script files. -->
-  <!-- PUT YOUR RESPONSE HERE -->
+  <!-- The order need to be placed in this order based on the dependancies of the files. Since they each use jQuery functionality, the jQuery script goes first; blogArticles contain the data we're working with, so it goes second; article.js creates the new Article objects that we will be sorting/manipulating; articleView.js utilizes these Article objects for user interaction, so it goes last.  -->
 </body>
 </html>

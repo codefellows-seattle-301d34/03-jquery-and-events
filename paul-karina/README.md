@@ -20,6 +20,7 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 
 ## Change Log
 <!-- 05-09-2018 9:40am - Article constrcutor function working properly. -->
+05-10-2018 9:12am - Added data-author attribute to all Article clones and linked scripts to index.html
 
 ## Credits and Collaborations
 
