@@ -65,7 +65,7 @@ articleView.handleCategoryFilter = function() {
     // When the blank (default) option is selected, show all the articles, except for the template.
     // Be sure to reset the #author-filter while you are at it!
     } else {
-      $('#articles article').fadeIn(500);
+      $('#articles article').fadeIn(750);
       $('.template').hide();
     }
     $('#author-filter').val('');
@@ -73,12 +73,18 @@ articleView.handleCategoryFilter = function() {
 }
 
 articleView.handleMainNav = function() {
+  $('nav .tab').on('click', function() {
+    let $whereToGo = $(this).data('content');
+    console.log($whereToGo);
+    $('.tab-content').hide();
+    $('#' + $whereToGo).fadeIn(750);
+  })
   // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
   // Clicking any .tab element should hide all the .tab-content sections, and then reveal the single .tab-content section that is associated with the clicked .tab element.
   // So: You need to dynamically build a selector string with the correct ID, based on the data available to you on the .tab element that was clicked.
 
   // REVIEW: Now trigger a click on the first .tab element, to set up the page.
-  $('.main-nav .tab:first').click();
+  $('nav .tab:first').click();
 };
 
 articleView.setTeasers = function() {
@@ -94,4 +100,6 @@ $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
+  articleView.handleMainNav();
+  articleView.setTeasers();
 })
