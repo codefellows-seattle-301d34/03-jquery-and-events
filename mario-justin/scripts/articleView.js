@@ -13,7 +13,7 @@ articleView.populateFilters = function() {
       // Start by grabbing the author's name from `this` article element, and then use that bit of text to create the option tag (in a variable named `optionTag`) that we can append to the #author-filter select element.
       authorName = $(this).attr('data-author');
 
-      // TODO: Refactor this concatenation using a template literal.
+      // DONE: Refactor this concatenation using a template literal.
       optionTag = `<option value="${authorName}"> ${authorName} </option>`;
       // optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
@@ -25,7 +25,7 @@ articleView.populateFilters = function() {
       // Avoid duplicates! We don't want to append the category name if the <select> already has this category as an option!
       category = $(this).attr('data-category');
 
-      // TODO: Refactor this concatenation using a template literal.
+      // DONE: Refactor this concatenation using a template literal.
       optionTag = `<option value="${category}"> ${category} </option>`;
       // optionTag = '<option value="' + category + '">' + category + '</option>';
 
@@ -42,11 +42,13 @@ articleView.handleAuthorFilter = function() {
     if ($(this).val()) {
       $('#articles article').hide();
       $(`article[data-author="${$(this).val()}"]`).fadeIn(750);
-      // TODO: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
+      // DONE: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
       // Use an "attribute selector" to find those articles, and fade them in for the reader.
 
     } else {
-      // TODO: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
+      $('#articles article').fadeIn(500);
+      $('.template').hide();
+      // DONE: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
 
     }
     $('#category-filter').val('');
@@ -54,12 +56,21 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
-  // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
-  // When an option with a value is selected, hide all the articles, then reveal the matches.
-  // When the blank (default) option is selected, show all the articles, except for the template.
-  // Be sure to reset the #author-filter while you are at it!
-
-};
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      $('#articles article').hide();
+      $(`article[data-category="${$(this).val()}"]`).fadeIn(750);
+    // DONE: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
+    // When an option with a value is selected, hide all the articles, then reveal the matches.
+    // When the blank (default) option is selected, show all the articles, except for the template.
+    // Be sure to reset the #author-filter while you are at it!
+    } else {
+      $('#articles article').fadeIn(500);
+      $('.template').hide();
+    }
+    $('#author-filter').val('');
+  });
+}
 
 articleView.handleMainNav = function() {
   // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
@@ -82,4 +93,5 @@ articleView.setTeasers = function() {
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
 })
