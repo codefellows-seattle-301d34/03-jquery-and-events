@@ -28,6 +28,10 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 
 05-10-2018 10:57 - Completed the articleView.handleCategoryFilter function to show articled sorted by category and the author selector resets.
 
+05-10-2018 11:30 - We completed the articleView.handleMainNav function so that the respective sections shows when a nav element is clicked.
+
+
+
 
 ## Credits and Collaborations
 
