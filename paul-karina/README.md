@@ -24,6 +24,8 @@ This application is a blog, which practices mobile-first CSS styling to provide 
 
 05-10-2018 9:12am - Completed articleView.populateFilters function to append options to DOM
 
+05-10-2018 10:38am - Completed articleView.handleAuthorFilter function to show and hide elements based on selection
+
 ## Credits and Collaborations
 
 * Oscar Otero - [JQuery Quick API Reference](https://oscarotero.com/jquery/)
