@@ -17,8 +17,6 @@ articleView.populateFilters = function () {
       // DONE: Refactor this concatenation using a template literal.
 
       optionTag = `<option value="${authorName}">${authorName}</option>`;
-
-
       if ( $( '#author-filter option[value="' + authorName + '"]' ).length === 0 ) {
         $( '#author-filter' ).append( optionTag );
       }
@@ -98,8 +96,13 @@ articleView.setTeasers = function () {
   // Ideally, we'd attach this as just one event handler on the #articles section, and let it process (in other words...delegate) any .read-on clicks that happen within child nodes.
   $( '#articles' ).on( 'click', '.read-on', function ( event ) {
     event.preventDefault();
-    $( this ).parent().find('*').show();
-
+    if ( $( this ).html() === 'Read on →' ) {
+      $( this ).parent().find( '*' ).show();
+      $( this ).html( 'Show less &larr;' );
+    } else {
+      $( '.article-body *:nth-of-type(n+2)' ).hide();
+      $( this ).html( 'Read on &rarr;' );
+    }
   }  )
 };
 
@@ -109,6 +112,6 @@ $( document ).ready( function () {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
-  articleView.handleMainNav();
   articleView.setTeasers();
+  articleView.handleMainNav();
 } )
