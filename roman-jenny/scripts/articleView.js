@@ -42,10 +42,9 @@ articleView.handleAuthorFilter = function() {
     if ($(this).val()) {
      
       $('article').hide()
-      console.log($(`article[data-author="${$(this).val()}"]`))
+      // $(`article[data-author="${$(this).val()}"]`).fadeIn();
       let val = $(this).val()
-      console.log('val', typeof val)
-      console.log('Macklemore' === val)
+      
       $(`article[data-author='${val}']`).fadeIn(750)
 
 
@@ -56,7 +55,9 @@ articleView.handleAuthorFilter = function() {
     } else {
       // DONE: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
       $('article').fadeIn(750);
+      $('article.templete').hide();
     }
+    //reset filter
     $('#category-filter').val('');
   });
 };
@@ -78,6 +79,7 @@ articleView.handleCategoryFilter = function() {
     } else {
       // DONE: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
       $('article').fadeIn(750);
+      $('article.templete').hide();
     }
     $('#author-filter').val('');
   });
@@ -99,6 +101,10 @@ articleView.handleMainNav = function() {
   })
 };
 
+
+
+
+
 articleView.setTeasers = function() {
   // REVIEW: Hide elements beyond the first 2 in any article body.
   $('.article-body *:nth-of-type(n+2)').hide();
@@ -113,7 +119,7 @@ articleView.setTeasers = function() {
   // Ideally, we'd attach this as just one event handler on the #articles section, and let it process (in other words... delegate) any .read-on clicks that happen within child nodes.
 };
 
-// TODO: Call all of the above functions, once we are sure the DOM is ready.
+// done: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
