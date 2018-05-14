@@ -17,7 +17,7 @@ articleView.populateFilters = function() {
       optionTag = `<option value="${authorName}"> ${authorName} </option>`;
       // optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
-      if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
+      if ($(`#author-filter option[value="${authorName}"]`).length === 0) {
         $('#author-filter').append(optionTag);
       }
 
@@ -29,7 +29,7 @@ articleView.populateFilters = function() {
       optionTag = `<option value="${category}"> ${category} </option>`;
       // optionTag = '<option value="' + category + '">' + category + '</option>';
 
-      if ($('#category-filter option[value="' + category + '"]').length === 0) {
+      if ($(`#category-filter option[value="${category}"]`).length === 0) {
         $('#category-filter').append(optionTag);
       }
     }
@@ -77,7 +77,7 @@ articleView.handleMainNav = function() {
     let $whereToGo = $(this).data('content');
     console.log($whereToGo);
     $('.tab-content').hide();
-    $('#' + $whereToGo).fadeIn(750);
+    $(`#${$whereToGo}`).fadeIn(750);
   })
   // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
   // Clicking any .tab element should hide all the .tab-content sections, and then reveal the single .tab-content section that is associated with the clicked .tab element.
